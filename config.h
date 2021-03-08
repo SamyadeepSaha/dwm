@@ -66,8 +66,10 @@ static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%"
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
 static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
 /* brightness commands */
-static const char *brightnessup[] = { "xbacklight -inc 5", NULL };
-static const char *brightnessdown[] = { "xbacklight -dec 5", NULL };
+static const char *brightnessup[] = { "xbacklight", "-inc", "5", NULL };
+static const char *brightnessdown[] = { "xbacklight", "-dec", "5", NULL };
+/* screenshot command */
+static const char *screenshot[] = { "scrot", "'screenshot_%Y%m%d_%H%M%S.png'", "-e", "'mv", "$f", "~/screenshots'", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -108,8 +110,11 @@ static Key keys[] = {
 	{ 0,                       XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
 	{ 0,                       XF86XK_AudioMute, spawn, {.v = mutevol } },
 	{ 0,                       XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
+	/* screen brightness key bind */
 	{ 0,                       XF86XK_MonBrightnessUp, spawn, {.v = brightnessup   } },
 	{ 0,                       XF86XK_MonBrightnessDown, spawn, {.v = brightnessdown   } },
+	/* screenshot key bind */
+	{ MODKEY,                       XK_s,      spawn,          {.v = screenshot } },
 };
 
 /* button definitions */
