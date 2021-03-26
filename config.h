@@ -68,8 +68,6 @@ static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "togg
 /* brightness commands */
 static const char *brightnessup[] = { "xbacklight", "-inc", "5", NULL };
 static const char *brightnessdown[] = { "xbacklight", "-dec", "5", NULL };
-/* screenshot command */
-static const char *screenshot[] = { "scrot", "'screenshot_%Y%m%d_%H%M%S.png'", "-e", "'mv", "$f", "~/screenshots'", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -96,6 +94,15 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	/* volume key bind */
+	{ 0,                       XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
+	{ 0,                       XF86XK_AudioMute, spawn, {.v = mutevol } },
+	{ 0,                       XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
+	/* screen brightness key bind */
+	{ 0,                       XF86XK_MonBrightnessUp, spawn, {.v = brightnessup   } },
+	{ 0,                       XF86XK_MonBrightnessDown, spawn, {.v = brightnessdown   } },
+	/* screenshot key bind */
+	{ 0,                  XK_Print,  spawn,          SHCMD("scrot ~/screenshots/") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -106,15 +113,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	/* volume key bind */
-	{ 0,                       XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
-	{ 0,                       XF86XK_AudioMute, spawn, {.v = mutevol } },
-	{ 0,                       XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
-	/* screen brightness key bind */
-	{ 0,                       XF86XK_MonBrightnessUp, spawn, {.v = brightnessup   } },
-	{ 0,                       XF86XK_MonBrightnessDown, spawn, {.v = brightnessdown   } },
-	/* screenshot key bind */
-	{ MODKEY,                       XK_s,      spawn,          {.v = screenshot } },
 };
 
 /* button definitions */
