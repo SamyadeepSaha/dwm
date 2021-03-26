@@ -18,12 +18,16 @@ necessary as root):
 
     make clean install
 
+Autostart script
+----------------
+Copy the autostart.sh to ~/.dwm directory
 
 Running dwm
 -----------
 Add the following line to your .xinitrc to start dwm using startx:
 
     exec dwm
+
 
 In order to connect dwm to a specific display, make sure that
 the DISPLAY environment variable is set correctly, e.g.:
