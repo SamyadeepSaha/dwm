@@ -104,6 +104,8 @@ static Key keys[] = {
 	{ 0,                            XF86XK_MonBrightnessDown, spawn,          {.v = brightnessdown   } },
 	/* screenshot key bind */
 	{ 0,                            XK_Print,                 spawn,          SHCMD("scrot ~/screenshots/") },
+	/* screen lock */
+	{ MODKEY,                       XK_x,                     spawn,          SHCMD("slock") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
