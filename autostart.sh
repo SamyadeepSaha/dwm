@@ -1,6 +1,7 @@
 #!/bin/bash
 
-pulseaudio --start
+# Uncomment this if you are a root user
+#pulseaudio --start
 
 # status bar
 while true; do
