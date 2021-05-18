@@ -18,9 +18,10 @@ necessary as root):
 
     make clean install
 
-Autostart script
-----------------
-Copy the autostart.sh to ~/.dwm directory
+Setup necessary scripts
+------------------------
+Copy all file inside scripts folder to $HOME/.dwm
+And make them executable.
 
 Running dwm
 -----------

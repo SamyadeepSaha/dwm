@@ -8,8 +8,8 @@ static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "FreeSerifBold:pixelsize=15" };
-static const char dmenufont[]       = "FreeSerifBold:pixelsize=15";
+static const char *fonts[]          = { "DejaVu Sans Bold:pixelsize=16" };
+static const char dmenufont[]       = "DejaVu Sans Bold:pixelsize=16";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -103,9 +103,11 @@ static Key keys[] = {
 	{ 0,                            XF86XK_MonBrightnessUp,   spawn,          {.v = brightnessup   } },
 	{ 0,                            XF86XK_MonBrightnessDown, spawn,          {.v = brightnessdown   } },
 	/* screenshot key bind */
-	{ 0,                            XK_Print,                 spawn,          SHCMD("scrot ~/screenshots/") },
+	{ 0,                            XK_Print,                 spawn,          SHCMD("scrot $HOME/screenshots/") },
 	/* screen lock */
 	{ MODKEY,                       XK_x,                     spawn,          SHCMD("slock") },
+    /* web script keybind */
+	{ MODKEY,                       XK_w,                     spawn,          SHCMD("$HOME/.dwm/web.sh") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
