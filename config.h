@@ -65,9 +65,9 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-c", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 /* volume commands */
-static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+1%",     NULL };
-static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-1%",     NULL };
-static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
+static const char *upvol[]   = { "pamixer", "--increase", "5", NULL };
+static const char *downvol[] = { "pamixer", "--decrease", "5", NULL };
+static const char *mutevol[] = { "pamixer", "--toggle-mute", NULL };
 /* brightness commands */
 static const char *brightnessup[] = { "xbacklight", "-inc", "5", NULL };
 static const char *brightnessdown[] = { "xbacklight", "-dec", "5", NULL };
